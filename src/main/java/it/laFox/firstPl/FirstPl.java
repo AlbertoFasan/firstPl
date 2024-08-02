@@ -13,7 +13,7 @@ public final class FirstPl extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
 
-        System.out.println("[FirstPl] Plugin enabled.");
+        System.out.println("[FirstPl] Plugin enabled");
 
         getServer().getPluginManager().registerEvents(this, this);
     }
