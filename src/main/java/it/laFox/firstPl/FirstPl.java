@@ -1,11 +1,16 @@
 package it.laFox.firstPl;
 
+import it.laFox.firstPl.listeners.XPBottleBreakListener;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.ChatPaginator;
+
+import java.awt.*;
 
 public final class FirstPl extends JavaPlugin implements Listener {
 
@@ -16,15 +21,22 @@ public final class FirstPl extends JavaPlugin implements Listener {
         System.out.println("[FirstPl] Plugin enabled");
 
         getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents( new XPBottleBreakListener(), this);
     }
 
+    /**
+     * Player Welcome Message
+     * @param e PlayerJoin event
+     */
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e){ // Removed the extra parameters Player & String
+    public void onPlayerJoin(PlayerJoinEvent e){
+
         Player p = e.getPlayer();
-        e.setJoinMessage(null);
-        Bukkit.broadcastMessage("&e&l" + p.getDisplayName() + "&bJoin Server"); //I would recommend doing 'p.getName();' instead of 'p'
-        Bukkit.getServer().getLogger().info(p.getDisplayName() + "join server");
-        p.sendMessage("&aWelcome to Server");
+
+        e.setJoinMessage(ChatColor.BLUE + "Welcome to the server " + p.getDisplayName());
+
+        p.sendTitle(ChatColor.BLUE + "WELCOME", ChatColor.AQUA + "ON THE SERVER", 0, 90, 45);
+
     }
 
 }
