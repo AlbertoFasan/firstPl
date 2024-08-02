@@ -24,7 +24,6 @@ public final class FirstPl extends JavaPlugin implements Listener {
         e.setJoinMessage(null);
         Bukkit.broadcastMessage("&e&l" + p.getDisplayName() + "&bJoin Server"); //I would recommend doing 'p.getName();' instead of 'p'
         Bukkit.getServer().getLogger().info(p.getDisplayName() + "join server");
-        p.sendMessage(getConfig().getString("motd")); // Removed 'e.getPlayer().sendMessage("")'
         p.sendMessage("&aWelcome to Server");
     }
 
