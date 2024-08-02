@@ -12,6 +12,8 @@ public class XPBottleBreakListener implements Listener {
     public void onBottleBreak(PlayerInteractEvent event) {
 
         Block block = event.getClickedBlock();
+
+        if (block == null) return;
         block.breakNaturally();
 
     }
