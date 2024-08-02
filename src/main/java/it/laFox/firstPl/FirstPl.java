@@ -3,6 +3,8 @@ package it.laFox.firstPl;
 import it.laFox.firstPl.listeners.XPBottleBreakListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,6 +39,21 @@ public final class FirstPl extends JavaPlugin implements Listener {
 
         p.sendTitle(ChatColor.BLUE + "WELCOME", ChatColor.AQUA + "ON THE SERVER", 0, 90, 45);
 
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if (command.getName().equalsIgnoreCase("firstpl")) {
+            if (sender instanceof Player) {
+
+                Player p = (Player) sender;
+                p.sendMessage(ChatColor.BLUE + "THIS IS MY FIRST PLUGIN!!!!! ");
+
+            }
+        }
+
+        return true;
     }
 
 }

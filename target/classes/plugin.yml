@@ -3,4 +3,6 @@ version: '1.0-SNAPSHOT'
 main: it.laFox.firstPl.FirstPl
 api-version: '1.21'
 author: 'AlbertoFasan'
-
+commands:
+  firstpl:
+    description: My first plugin description
